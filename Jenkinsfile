@@ -15,7 +15,7 @@ pipeline {
 
         stage('Check syntax') {
             steps {
-                ./vendor/bin/phpcs --standard=phpcs.xml ./
+                php ./vendor/bin/phpcs --standard=phpcs.xml ./
             }
         }
     }
