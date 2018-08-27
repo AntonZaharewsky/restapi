@@ -45,8 +45,11 @@ class UsersController extends Controller
 
     /**
      * @Route("/users/{id}", methods={"GET"})
+
+     * @param integer $id Identifier.
+     * @return Response
      */
-    public function getSingleAction($id)
+    public function getSingleAction(int $id)
     {
         $user = $this->usersDataStore->get($id);
 
@@ -57,6 +60,8 @@ class UsersController extends Controller
 
     /**
      * @Route("/users", methods={"GET"})
+     *
+     * @return Response
      */
     public function getAllAction()
     {
@@ -69,6 +74,10 @@ class UsersController extends Controller
 
     /**
      * @Route("/users", methods={"POST"})
+     *
+     * @param Request $request Request.
+     *
+     * @return Response
      */
     public function createAction(Request $request)
     {
@@ -83,8 +92,13 @@ class UsersController extends Controller
 
     /**
      * @Route("/users/{id}", methods={"PATCH"})
+     *
+     * @param integer $id Id.
+     * @param Request $request Request
+     *
+     * @return Response
      */
-    public function updateAction($id, Request $request)
+    public function updateAction(int $id, Request $request)
     {
         try {
             $this->usersDataStore->update($id, $request);
@@ -99,6 +113,10 @@ class UsersController extends Controller
 
     /**
      * @Route("/users/{id}", methods={"DELETE"})
+     *
+     * @param integer $id Id.
+     *
+     * @return Response
      */
     public function deleteAction($id)
     {

@@ -12,5 +12,11 @@ pipeline {
                 sh './vendor/bin/phpcs --standard=phpcs.xml ./'
             }
         }
+
+        stage('Unit tests') {
+            steps {
+                sh './vendor/bin/phpunit'
+            }
+        }
     }
 }

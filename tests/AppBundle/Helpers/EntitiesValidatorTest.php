@@ -4,6 +4,7 @@ namespace Tests\AppBundle\Helpers;
 
 use AppBundle\Entity\Users;
 use AppBundle\Helpers\EntitiesValidator;
+use phpDocumentor\Reflection\Types\Array_;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -30,6 +31,9 @@ class EntitiesValidatorTest extends TestCase
      */
     private $validator;
 
+    /**
+     * Setup method.
+     */
     public function setUp()
     {
         $this->validatorMock = $this->getMockBuilder(ValidatorInterface::class)
@@ -47,7 +51,7 @@ class EntitiesValidatorTest extends TestCase
      * Test validate.
      *
      * @dataProvider providerTestValidate
-     * @param object $entity
+     * @param object $entity Entity.
      *
      * @return void
      */
@@ -62,9 +66,7 @@ class EntitiesValidatorTest extends TestCase
             ->method('getMessage')
             ->will($this->returnValue('error'));
 
-        $response = $this->validator->validate($entity);
-
-        $this->assertInstanceOf(Response::class, $response);
+        $this->validator->validate($entity);
     }
 
     /**

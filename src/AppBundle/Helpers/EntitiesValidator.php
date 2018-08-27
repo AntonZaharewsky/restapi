@@ -19,7 +19,7 @@ class EntitiesValidator
 
     /**
      * EntitiesValidator constructor.
-     * @param ValidatorInterface $validator
+     * @param ValidatorInterface $validator Validator.
      */
     public function __construct(ValidatorInterface $validator)
     {
@@ -29,7 +29,7 @@ class EntitiesValidator
     /**
      * Validate entity.
      *
-     * @param object $entity
+     * @param object $entity Entity.
      * @return array
      */
     public function validate($entity)

@@ -7,6 +7,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 
+/**
+ * Class RequestCommand
+ * @package AppBundle\Commands
+ * @SuppressWarnings(PHPMD)
+ */
 class RequestCommand extends Command
 {
     const DEALER_HAND = 'Рука дилера.';

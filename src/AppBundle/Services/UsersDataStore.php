@@ -76,7 +76,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
      * @param integer $id
      * @return object
      */
-    public function get($id)
+    public function get(int $id)
     {
         $user = $this->userRepository->find($id);
 
@@ -104,7 +104,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
      * @param Request $request
      * @return void
      */
-    public function update($id, Request $request)
+    public function update(int $id, Request $request)
     {
         $user = $this->getUser($id);
 
@@ -154,7 +154,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
      * @param int $id
      * @return void
      */
-    public function delete($id)
+    public function delete(int $id)
     {
         $user = $this->getUser($id);
 

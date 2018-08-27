@@ -22,7 +22,7 @@ interface DataSetterInterface
      * @param Request $request Information for updating.
      * @return Response
      */
-    public function update($id, Request $request);
+    public function update(int $id, Request $request);
 
     /**
      * Delete data.
@@ -30,5 +30,5 @@ interface DataSetterInterface
      * @param integer $id Item id which we need to delete.
      * @return Response
      */
-    public function delete($id);
+    public function delete(int $id);
 }

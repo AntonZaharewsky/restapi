@@ -2,7 +2,6 @@
 
 namespace AppBundle\Interfaces;
 
-
 interface DataStoreInterface
 {
     /**
@@ -11,7 +10,7 @@ interface DataStoreInterface
      * @param integer $id Item id which we need to take.
      * @return string
      */
-    public function get($id);
+    public function get(int $id);
 
     /**
      * Get all items.
