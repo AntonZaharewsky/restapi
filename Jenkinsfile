@@ -7,12 +7,6 @@ pipeline {
             }
         }
 
-        stage('Stage 1') {
-            steps {
-                echo 'Hello world!'
-            }
-        }
-
         stage('Check syntax') {
             steps {
                 sh './vendor/bin/phpcs --standard=phpcs.xml ./'
