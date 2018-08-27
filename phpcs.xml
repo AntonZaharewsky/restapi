@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruleset name="api">
+    <description>The coding standard for PHP_CodeSniffer for project GodelLotto</description>
+    <arg name="parallel" value="10" />
+
+    <arg name="extensions" value="php" />
+    <arg name="encoding" value="UTF-8" />
+
+    <exclude-pattern>./vendor/*</exclude-pattern>
+    <exclude-pattern>./var/*</exclude-pattern>
+    <exclude-pattern>./web/*</exclude-pattern>
+
+    <rule ref="PSR2"/>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>./index.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+    </rule>
+    <rule ref="Squiz.Commenting.ClassComment">
+        <exclude name="Squiz.Commenting.ClassComment.TagNotAllowed" />
+    </rule>
+    <rule ref="Squiz.Commenting.VariableComment">
+
+    </rule>
+
+</ruleset>
