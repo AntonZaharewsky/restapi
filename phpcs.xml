@@ -10,6 +10,7 @@
     <exclude-pattern>./var/*</exclude-pattern>
     <exclude-pattern>./web/*</exclude-pattern>
     <exclude-pattern>./app/</exclude-pattern>
+    <exclude-pattern>./src/AppBundle/Entity/*</exclude-pattern>
 
     <rule ref="PSR2"/>
     <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">

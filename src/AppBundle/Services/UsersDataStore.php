@@ -151,7 +151,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
     /**
      * Delete user.
      *
-     * @param int $id Id.
+     * @param integer $id Id.
      * @return void
      */
     public function delete(int $id)

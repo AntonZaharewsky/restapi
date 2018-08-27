@@ -52,9 +52,11 @@ class UsersController extends Controller
     {
         $user = $this->usersDataStore->get($id);
 
-        return new Response($this->serializer->serialize($user, 'json'),
+        return new Response(
+            $this->serializer->serialize($user, 'json'),
             Response::HTTP_OK,
-            ['Content-Type' => 'application/json']);
+            ['Content-Type' => 'application/json']
+        );
     }
 
     /**
@@ -66,9 +68,11 @@ class UsersController extends Controller
     {
         $users = $this->usersDataStore->getAll();
 
-        return new Response($this->serializer->serialize($users, 'json'),
+        return new Response(
+            $this->serializer->serialize($users, 'json'),
             Response::HTTP_OK,
-            ['Content-Type' => 'application/json']);
+            ['Content-Type' => 'application/json']
+        );
     }
 
     /**

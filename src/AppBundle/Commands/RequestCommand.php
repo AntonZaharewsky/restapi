@@ -107,8 +107,11 @@ class RequestCommand extends Command
             return;
         }
 
-        $question = new ConfirmationQuestion('Еще? (Y/n): ', false,
-            '/^(y|j)/i');
+        $question = new ConfirmationQuestion(
+            'Еще? (Y/n): ',
+            false,
+            '/^(y|j)/i'
+        );
 
         $answer = $helper->ask($input, $output, $question);
 
@@ -134,18 +137,18 @@ class RequestCommand extends Command
      * @param integer         $handValue Hand value.
      * @param string          $message   Message.
      * @param array           $deck      Deck.
+     * @return void
      */
     protected function printHand(OutputInterface $output, int $handValue, string $message, array $deck)
     {
         $output->writeln('<options=bold,underscore>' . $message . '</>');
         $output->writeln('');
         foreach ($deck as $key => $card) {
-            $output->writeln('Карта: <info>' . $card['face'] . ' </info>Масть: <comment>' . $card['suit'] . '</comment>');
+            $output->writeln('Карта: <info>'.$card['face'].' </info>Масть: <comment>'.$card['suit'].'</comment>');
         }
         $output->writeln('<error>Значение карт в руке: ' . $handValue . '</error>');
         $output->writeln('');
         $output->writeln('<fg=black;bg=cyan>======================================================================</>');
-
     }
 
     /**
@@ -163,7 +166,7 @@ class RequestCommand extends Command
 
     /**
      * @param array $hand Hand.
-     * @return int
+     * @return integer
      */
     protected function evaluateHand(array $hand)
     {
@@ -181,7 +184,7 @@ class RequestCommand extends Command
     /**
      * @param integer $playerDeckValue Value.
      * @param integer $dealerDeckValue Value.
-     * @return bool|string
+     * @return boolean|string
      */
     protected function getWinner(int $playerDeckValue, int $dealerDeckValue)
     {
