@@ -13,12 +13,6 @@ pipeline {
             }
         }
 
-        stage('PHPmd syntax') {
-            steps {
-                sh './vendor/bin/phpmd . text phpmd.xml --suffixes php'
-            }
-        }
-
         stage('Unit tests') {
             steps {
                 sh './vendor/bin/phpunit'
