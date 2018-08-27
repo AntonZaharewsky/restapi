@@ -17,6 +17,9 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class UsersControllerTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testTest()
     {
         $this->assertTrue(true);

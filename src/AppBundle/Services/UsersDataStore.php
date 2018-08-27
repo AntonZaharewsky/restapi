@@ -43,9 +43,9 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
 
     /**
      * UsersDataStore constructor.
-     * @param EntityManagerInterface $entityManager
-     * @param EntitiesValidator      $validator
-     * @param SerializerInterface    $serializer
+     * @param EntityManagerInterface $entityManager Manager.
+     * @param EntitiesValidator      $validator     Validator
+     * @param SerializerInterface    $serializer    Serializer.
      */
     public function __construct(
         EntityManagerInterface $entityManager,
@@ -73,7 +73,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
     /**
      * Get single user from database.
      *
-     * @param integer $id
+     * @param integer $id Id.
      * @return object
      */
     public function get(int $id)
@@ -84,10 +84,10 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
     }
 
     /**
-     * @param $id
+     * @param integer $id Id.
      * @return object
      */
-    public function getUser($id)
+    public function getUser(int $id)
     {
         $user = $this->userRepository->find($id);
         if (is_null($user)) {
@@ -100,8 +100,8 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
     /**
      * Update selected user.
      *
-     * @param integer $id
-     * @param Request $request
+     * @param integer $id      Id.
+     * @param Request $request Request.
      * @return void
      */
     public function update(int $id, Request $request)
@@ -126,7 +126,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
     /**
      * Create new user.
      *
-     * @param Request $request
+     * @param Request $request Request.
      * @return void
      */
     public function create(Request $request)
@@ -151,7 +151,7 @@ class UsersDataStore implements DataStoreInterface, DataSetterInterface
     /**
      * Delete user.
      *
-     * @param int $id
+     * @param int $id Id.
      * @return void
      */
     public function delete(int $id)
