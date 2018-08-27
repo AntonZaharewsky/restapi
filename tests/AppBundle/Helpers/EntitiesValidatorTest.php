@@ -33,6 +33,7 @@ class EntitiesValidatorTest extends TestCase
 
     /**
      * Setup method.
+     * @return void
      */
     public function setUp()
     {

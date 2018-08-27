@@ -17,12 +17,24 @@ class RequestCommand extends Command
     const DEALER_HAND = 'Рука дилера.';
     const PLAYER_HAND = 'Ваша рука.';
 
+    /**
+     * @var array
+     */
     private $deck = [];
 
+    /**
+     * @var array
+     */
     private $playerHand = [];
 
+    /**
+     * @var array
+     */
     private $dealerHand = [];
 
+    /**
+     * @var array
+     */
     private $faces = [
         "Два" => 2,
         "Три" => 3,
@@ -39,6 +51,9 @@ class RequestCommand extends Command
         "Туз" => 1
     ];
 
+    /**
+     * @var array
+     */
     private $suits = [
         "Пики",
         "Червы",
@@ -46,12 +61,20 @@ class RequestCommand extends Command
         "Бубны"
     ];
 
+    /**
+     * @return void
+     */
     protected function configure()
     {
         $this->setName('play')
             ->setDescription('Make \'request\'');
     }
 
+    /**
+     * @param InputInterface  $input  Input.
+     * @param OutputInterface $output Output.
+     * @return int|null|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $helper = $this->getHelper('question');
@@ -106,9 +129,15 @@ class RequestCommand extends Command
         }
     }
 
-    protected function printHand(OutputInterface $output, $handValue, $message, $deck)
+    /**
+     * @param OutputInterface $output    Output.
+     * @param integer         $handValue Hand value.
+     * @param string          $message   Message.
+     * @param array           $deck      Deck.
+     */
+    protected function printHand(OutputInterface $output, int $handValue, string $message, array $deck)
     {
-        $output->writeln('<options=bold,underscore>'.$message.'</>');
+        $output->writeln('<options=bold,underscore>' . $message . '</>');
         $output->writeln('');
         foreach ($deck as $key => $card) {
             $output->writeln('Карта: <info>' . $card['face'] . ' </info>Масть: <comment>' . $card['suit'] . '</comment>');
@@ -119,6 +148,9 @@ class RequestCommand extends Command
 
     }
 
+    /**
+     * @return void
+     */
     protected function makeDealerHand()
     {
         $this->dealerHand = $this->giveCard($this->dealerHand);
@@ -129,7 +161,11 @@ class RequestCommand extends Command
         }
     }
 
-    protected function evaluateHand($hand)
+    /**
+     * @param array $hand Hand.
+     * @return int
+     */
+    protected function evaluateHand(array $hand)
     {
         $value = 0;
         foreach ($hand as $card) {
@@ -142,7 +178,12 @@ class RequestCommand extends Command
         return $value;
     }
 
-    protected function getWinner($playerDeckValue, $dealerDeckValue)
+    /**
+     * @param integer $playerDeckValue Value.
+     * @param integer $dealerDeckValue Value.
+     * @return bool|string
+     */
+    protected function getWinner(int $playerDeckValue, int $dealerDeckValue)
     {
         $player = 21 - $playerDeckValue;
         $dealer = 21 - $dealerDeckValue;
@@ -158,7 +199,11 @@ class RequestCommand extends Command
         return false;
     }
 
-    protected function giveCard($hand)
+    /**
+     * @param array $hand Hand.
+     * @return array
+     */
+    protected function giveCard(array $hand)
     {
         shuffle($this->deck);
         $hand[] = array_shift($this->deck);
@@ -166,6 +211,9 @@ class RequestCommand extends Command
         return $hand;
     }
 
+    /**
+     * @return array
+     */
     protected function makeDeck()
     {
         foreach ($this->suits as $suit) {
@@ -178,6 +226,9 @@ class RequestCommand extends Command
         return $this->deck;
     }
 
+    /**
+     * @return array
+     */
     protected function makeHand()
     {
         $hand = [];

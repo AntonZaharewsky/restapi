@@ -34,8 +34,8 @@ class UsersController extends Controller
 
     /**
      * UsersController constructor.
-     * @param UsersDataStore      $usersDataStore
-     * @param SerializerInterface $serializer
+     * @param UsersDataStore      $usersDataStore UsersDataStore.
+     * @param SerializerInterface $serializer     Serializer.
      */
     public function __construct(UsersDataStore $usersDataStore, SerializerInterface $serializer)
     {
@@ -45,7 +45,6 @@ class UsersController extends Controller
 
     /**
      * @Route("/users/{id}", methods={"GET"})
-
      * @param integer $id Identifier.
      * @return Response
      */
@@ -53,9 +52,9 @@ class UsersController extends Controller
     {
         $user = $this->usersDataStore->get($id);
 
-        return new Response($this->serializer->serialize($user, 'json'), Response::HTTP_OK,
-            ['Content-Type' => 'application/json']
-        );
+        return new Response($this->serializer->serialize($user, 'json'),
+            Response::HTTP_OK,
+            ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -67,9 +66,9 @@ class UsersController extends Controller
     {
         $users = $this->usersDataStore->getAll();
 
-        return new Response($this->serializer->serialize($users, 'json'), Response::HTTP_OK,
-            ['Content-Type' => 'application/json']
-        );
+        return new Response($this->serializer->serialize($users, 'json'),
+            Response::HTTP_OK,
+            ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -93,7 +92,7 @@ class UsersController extends Controller
     /**
      * @Route("/users/{id}", methods={"PATCH"})
      *
-     * @param integer $id Id.
+     * @param integer $id      Id.
      * @param Request $request Request
      *
      * @return Response
@@ -118,7 +117,7 @@ class UsersController extends Controller
      *
      * @return Response
      */
-    public function deleteAction($id)
+    public function deleteAction(int $id)
     {
         try {
             $this->usersDataStore->delete($id);

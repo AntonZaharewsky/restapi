@@ -9,6 +9,7 @@
     <exclude-pattern>./vendor/*</exclude-pattern>
     <exclude-pattern>./var/*</exclude-pattern>
     <exclude-pattern>./web/*</exclude-pattern>
+    <exclude-pattern>./app/</exclude-pattern>
 
     <rule ref="PSR2"/>
     <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
